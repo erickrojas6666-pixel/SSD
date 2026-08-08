@@ -1,0 +1,30 @@
+package com.ssd.mobile.data
+
+import android.content.Context
+import androidx.security.crypto.EncryptedSharedPreferences
+import androidx.security.crypto.MasterKey
+
+class SecureTokenStore(context: Context) {
+
+    private val masterKey = MasterKey.Builder(context)
+        .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
+        .build()
+
+    private val prefs = EncryptedSharedPreferences.create(
+        context,
+        "ssd_secure_prefs",
+        masterKey,
+        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
+    )
+
+    fun guardarToken(token: String) {
+        prefs.edit().putString("auth_token", token).apply()
+    }
+
+    fun obtenerToken(): String? = prefs.getString("auth_token", null)
+
+    fun limpiar() {
+        prefs.edit().clear().apply()
+    }
+}

@@ -1,0 +1,399 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ssd.wear"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="30"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-feature android:name="android.hardware.type.watch" />
+11-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:3:5-64
+11-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:3:19-61
+12
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:5:5-67
+13-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:5:22-64
+14    <uses-permission android:name="android.permission.VIBRATE" />
+14-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:6:5-66
+14-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:6:22-63
+15    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+15-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:7:5-77
+15-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:7:22-74
+16    <uses-permission android:name="android.permission.WAKE_LOCK" />
+16-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:8:5-68
+16-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:8:22-65
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+17-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:22:5-79
+17-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:22:22-76
+18    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+18-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:26:5-82
+18-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:26:22-79
+19
+20    <permission
+20-->[androidx.core:core:1.13.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\4eb29006c2e7723e49e532acd19ae8a4\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
+21        android:name="com.ssd.wear.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+21-->[androidx.core:core:1.13.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\4eb29006c2e7723e49e532acd19ae8a4\transformed\core-1.13.1\AndroidManifest.xml:23:9-81
+22        android:protectionLevel="signature" />
+22-->[androidx.core:core:1.13.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\4eb29006c2e7723e49e532acd19ae8a4\transformed\core-1.13.1\AndroidManifest.xml:24:9-44
+23
+24    <uses-permission android:name="com.ssd.wear.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+24-->[androidx.core:core:1.13.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\4eb29006c2e7723e49e532acd19ae8a4\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
+24-->[androidx.core:core:1.13.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\4eb29006c2e7723e49e532acd19ae8a4\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
+25
+26    <application
+26-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:10:5-68:19
+27        android:allowBackup="true"
+27-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:11:9-35
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.13.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\4eb29006c2e7723e49e532acd19ae8a4\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
+29        android:debuggable="true"
+30        android:extractNativeLibs="false"
+31        android:icon="@mipmap/ic_launcher"
+31-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:12:9-43
+32        android:label="@string/app_name"
+32-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:13:9-41
+33        android:testOnly="true"
+34        android:theme="@style/Theme.SsdWear" >
+34-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:14:9-45
+35
+36        <!-- Requerido para que la app aparezca como instalable en un reloj standalone -->
+37        <meta-data
+37-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:17:9-19:36
+38            android:name="com.google.android.wearable.standalone"
+38-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:18:13-66
+39            android:value="true" />
+39-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:19:13-33
+40
+41        <activity
+41-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:21:9-29:20
+42            android:name="com.ssd.wear.MainActivity"
+42-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:22:13-41
+43            android:exported="true"
+43-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:23:13-36
+44            android:theme="@style/Theme.SsdWear" >
+44-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:24:13-49
+45            <intent-filter>
+45-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:25:13-28:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:26:17-69
+46-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:26:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:27:17-77
+48-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:27:27-74
+49            </intent-filter>
+50        </activity>
+51
+52        <!-- Escucha los mensajes y datos sincronizados que manda la app del celular -->
+53        <service
+53-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:32:9-57:19
+54            android:name="com.ssd.wear.services.TokenReceiverService"
+54-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:33:13-58
+55            android:exported="true"
+55-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:34:13-36
+56            android:permission="com.google.android.gms.permission.BIND_LISTENER" >
+56-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:35:13-81
+57            <intent-filter>
+57-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:36:13-42:29
+58                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+58-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:37:17-91
+58-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:37:25-88
+59
+60                <data
+60-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:38:17-41:45
+61                    android:host="*"
+61-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:39:21-37
+62                    android:pathPrefix="/auth-token"
+62-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:40:21-53
+63                    android:scheme="wear" />
+63-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:41:21-42
+64            </intent-filter>
+65            <intent-filter>
+65-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:43:13-49:29
+66                <action android:name="com.google.android.gms.wearable.MESSAGE_RECEIVED" />
+66-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:37:17-91
+66-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:37:25-88
+67
+68                <data
+68-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:38:17-41:45
+69                    android:host="*"
+69-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:39:21-37
+70                    android:pathPrefix="/logout"
+70-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:40:21-53
+71                    android:scheme="wear" />
+71-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:41:21-42
+72            </intent-filter>
+73            <intent-filter>
+73-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:50:13-56:29
+74                <action android:name="com.google.android.gms.wearable.DATA_CHANGED" />
+74-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:51:17-87
+74-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:51:25-84
+75
+76                <data
+76-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:38:17-41:45
+77                    android:host="*"
+77-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:39:21-37
+78                    android:pathPrefix="/auth-token"
+78-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:40:21-53
+79                    android:scheme="wear" />
+79-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:41:21-42
+80            </intent-filter>
+81        </service>
+82
+83        <!-- Recibe y muestra las notificaciones push de FCM -->
+84        <service
+84-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:60:9-66:19
+85            android:name="com.ssd.wear.services.SsdFirebaseMessagingService"
+85-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:61:13-65
+86            android:exported="false" >
+86-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:62:13-37
+87            <intent-filter>
+87-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:63:13-65:29
+88                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+88-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:64:17-78
+88-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:64:25-75
+89            </intent-filter>
+90        </service>
+91
+92        <uses-library
+92-->[androidx.wear.compose:compose-foundation:1.4.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\4561781d910723b3c341d1c325f031de\transformed\compose-foundation-1.4.0\AndroidManifest.xml:23:9-25:40
+93            android:name="wear-sdk"
+93-->[androidx.wear.compose:compose-foundation:1.4.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\4561781d910723b3c341d1c325f031de\transformed\compose-foundation-1.4.0\AndroidManifest.xml:24:13-36
+94            android:required="false" />
+94-->[androidx.wear.compose:compose-foundation:1.4.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\4561781d910723b3c341d1c325f031de\transformed\compose-foundation-1.4.0\AndroidManifest.xml:25:13-37
+95
+96        <activity
+96-->[androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\14676ca602fa4be5c34f6f6e516186b1\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+97            android:name="androidx.compose.ui.tooling.PreviewActivity"
+97-->[androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\14676ca602fa4be5c34f6f6e516186b1\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+98            android:exported="true" />
+98-->[androidx.compose.ui:ui-tooling-android:1.7.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\14676ca602fa4be5c34f6f6e516186b1\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+99
+100        <service
+100-->[com.google.firebase:firebase-messaging-ktx:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\81c87334eeac791c88e52bf371177c4b\transformed\firebase-messaging-ktx-24.0.2\AndroidManifest.xml:23:9-29:19
+101            android:name="com.google.firebase.components.ComponentDiscoveryService"
+101-->[com.google.firebase:firebase-messaging-ktx:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\81c87334eeac791c88e52bf371177c4b\transformed\firebase-messaging-ktx-24.0.2\AndroidManifest.xml:24:13-84
+102            android:directBootAware="true"
+102-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:32:13-43
+103            android:exported="false" >
+103-->[com.google.firebase:firebase-messaging-ktx:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\81c87334eeac791c88e52bf371177c4b\transformed\firebase-messaging-ktx-24.0.2\AndroidManifest.xml:25:13-37
+104            <meta-data
+104-->[com.google.firebase:firebase-messaging-ktx:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\81c87334eeac791c88e52bf371177c4b\transformed\firebase-messaging-ktx-24.0.2\AndroidManifest.xml:26:13-28:85
+105                android:name="com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingLegacyRegistrar"
+105-->[com.google.firebase:firebase-messaging-ktx:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\81c87334eeac791c88e52bf371177c4b\transformed\firebase-messaging-ktx-24.0.2\AndroidManifest.xml:27:17-129
+106                android:value="com.google.firebase.components.ComponentRegistrar" />
+106-->[com.google.firebase:firebase-messaging-ktx:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\81c87334eeac791c88e52bf371177c4b\transformed\firebase-messaging-ktx-24.0.2\AndroidManifest.xml:28:17-82
+107            <meta-data
+107-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:57:13-59:85
+108                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+108-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:58:17-122
+109                android:value="com.google.firebase.components.ComponentRegistrar" />
+109-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:59:17-82
+110            <meta-data
+110-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:60:13-62:85
+111                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+111-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:61:17-119
+112                android:value="com.google.firebase.components.ComponentRegistrar" />
+112-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:62:17-82
+113            <meta-data
+113-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\2d296337a6652faa39a32541adea548a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:15:13-17:85
+114                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+114-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\2d296337a6652faa39a32541adea548a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:16:17-130
+115                android:value="com.google.firebase.components.ComponentRegistrar" />
+115-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\2d296337a6652faa39a32541adea548a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:17:17-82
+116            <meta-data
+116-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\2d296337a6652faa39a32541adea548a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:18:13-20:85
+117                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+117-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\2d296337a6652faa39a32541adea548a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:19:17-127
+118                android:value="com.google.firebase.components.ComponentRegistrar" />
+118-->[com.google.firebase:firebase-installations:18.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\2d296337a6652faa39a32541adea548a\transformed\firebase-installations-18.0.0\AndroidManifest.xml:20:17-82
+119            <meta-data
+119-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\b44a46bbae5b03d864dc614c06e24b8c\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:12:13-14:85
+120                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+120-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\b44a46bbae5b03d864dc614c06e24b8c\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:13:17-116
+121                android:value="com.google.firebase.components.ComponentRegistrar" />
+121-->[com.google.firebase:firebase-common-ktx:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\b44a46bbae5b03d864dc614c06e24b8c\transformed\firebase-common-ktx-21.0.0\AndroidManifest.xml:14:17-82
+122            <meta-data
+122-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:35:13-37:85
+123                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+123-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:36:17-109
+124                android:value="com.google.firebase.components.ComponentRegistrar" />
+124-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:37:17-82
+125            <meta-data
+125-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\630dd537f6fac3dd6da78f271a1e172c\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:25:13-27:85
+126                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+126-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\630dd537f6fac3dd6da78f271a1e172c\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:26:17-115
+127                android:value="com.google.firebase.components.ComponentRegistrar" />
+127-->[com.google.firebase:firebase-datatransport:18.2.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\630dd537f6fac3dd6da78f271a1e172c\transformed\firebase-datatransport-18.2.0\AndroidManifest.xml:27:17-82
+128        </service>
+129
+130        <receiver
+130-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:29:9-40:20
+131            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+131-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:30:13-78
+132            android:exported="true"
+132-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:31:13-36
+133            android:permission="com.google.android.c2dm.permission.SEND" >
+133-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:32:13-73
+134            <intent-filter>
+134-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:33:13-35:29
+135                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+135-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:34:17-81
+135-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:34:25-78
+136            </intent-filter>
+137
+138            <meta-data
+138-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:37:13-39:40
+139                android:name="com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+139-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:38:17-92
+140                android:value="true" />
+140-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:39:17-37
+141        </receiver>
+142        <!--
+143             FirebaseMessagingService performs security checks at runtime,
+144             but set to not exported to explicitly avoid allowing another app to call it.
+145        -->
+146        <service
+146-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:46:9-53:19
+147            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+147-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:47:13-82
+148            android:directBootAware="true"
+148-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:48:13-43
+149            android:exported="false" >
+149-->[com.google.firebase:firebase-messaging:24.0.2] C:\Users\migue\.gradle\caches\9.0.0\transforms\a5c988b4710092f80ec9145d4241cb9c\transformed\firebase-messaging-24.0.2\AndroidManifest.xml:49:13-37
+150            <intent-filter android:priority="-500" >
+150-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:63:13-65:29
+151                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+151-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:64:17-78
+151-->C:\xampp\htdocs\uni\integradora9\SSD-WearOS\wear\src\main\AndroidManifest.xml:64:25-75
+152            </intent-filter>
+153        </service>
+154
+155        <activity
+155-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\6a47f09704afcbe187374c7e50c65a79\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:9-173
+156            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+156-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\6a47f09704afcbe187374c7e50c65a79\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:19-85
+157            android:exported="false"
+157-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\6a47f09704afcbe187374c7e50c65a79\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:146-170
+158            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+158-->[com.google.android.gms:play-services-base:18.5.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\6a47f09704afcbe187374c7e50c65a79\transformed\play-services-base-18.5.0\AndroidManifest.xml:5:86-145
+159
+160        <provider
+160-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+161            android:name="androidx.startup.InitializationProvider"
+161-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+162            android:authorities="com.ssd.wear.androidx-startup"
+162-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+163            android:exported="false" >
+163-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+164            <meta-data
+164-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+165                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+165-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+166                android:value="androidx.startup" />
+166-->[androidx.emoji2:emoji2:1.3.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\68a635e75536d48dead7c22e5d52e048\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+167            <meta-data
+167-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\migue\.gradle\caches\9.0.0\transforms\4110be9d0c99d20f593917265844cb45\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:29:13-31:52
+168                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+168-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\migue\.gradle\caches\9.0.0\transforms\4110be9d0c99d20f593917265844cb45\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:30:17-78
+169                android:value="androidx.startup" />
+169-->[androidx.lifecycle:lifecycle-process:2.8.6] C:\Users\migue\.gradle\caches\9.0.0\transforms\4110be9d0c99d20f593917265844cb45\transformed\lifecycle-process-2.8.6\AndroidManifest.xml:31:17-49
+170            <meta-data
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+171                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+171-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+172                android:value="androidx.startup" />
+172-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+173        </provider>
+174        <provider
+174-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:23:9-28:39
+175            android:name="com.google.firebase.provider.FirebaseInitProvider"
+175-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:24:13-77
+176            android:authorities="com.ssd.wear.firebaseinitprovider"
+176-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:25:13-72
+177            android:directBootAware="true"
+177-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:26:13-43
+178            android:exported="false"
+178-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:27:13-37
+179            android:initOrder="100" />
+179-->[com.google.firebase:firebase-common:21.0.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\8b2a24e0ce008c4bb98446e0d08e52ac\transformed\firebase-common-21.0.0\AndroidManifest.xml:28:13-36
+180
+181        <meta-data
+181-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\ed26f55db04b71867f87e85158509eaa\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:9-122
+182            android:name="com.google.android.gms.version"
+182-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\ed26f55db04b71867f87e85158509eaa\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:20-65
+183            android:value="@integer/google_play_services_version" />
+183-->[com.google.android.gms:play-services-basement:18.4.0] C:\Users\migue\.gradle\caches\9.0.0\transforms\ed26f55db04b71867f87e85158509eaa\transformed\play-services-basement-18.4.0\AndroidManifest.xml:6:66-119
+184
+185        <receiver
+185-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+186            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+186-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+187            android:directBootAware="false"
+187-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+188            android:enabled="true"
+188-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+189            android:exported="true"
+189-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+190            android:permission="android.permission.DUMP" >
+190-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+191            <intent-filter>
+191-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+192                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+192-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+192-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+193            </intent-filter>
+194            <intent-filter>
+194-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+195                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+195-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+195-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+196            </intent-filter>
+197            <intent-filter>
+197-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+198                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+198-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+198-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+199            </intent-filter>
+200            <intent-filter>
+200-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+201                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+201-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+201-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\migue\.gradle\caches\9.0.0\transforms\efc13d34f6edb986e9c20b5d388f0e73\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+202            </intent-filter>
+203        </receiver>
+204
+205        <service
+205-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\c0eee01f3ac8417adc10dd93c52f3e2c\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:28:9-34:19
+206            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+206-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\c0eee01f3ac8417adc10dd93c52f3e2c\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:29:13-103
+207            android:exported="false" >
+207-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\c0eee01f3ac8417adc10dd93c52f3e2c\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:30:13-37
+208            <meta-data
+208-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\c0eee01f3ac8417adc10dd93c52f3e2c\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:31:13-33:39
+209                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+209-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\c0eee01f3ac8417adc10dd93c52f3e2c\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:32:17-94
+210                android:value="cct" />
+210-->[com.google.android.datatransport:transport-backend-cct:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\c0eee01f3ac8417adc10dd93c52f3e2c\transformed\transport-backend-cct-3.1.9\AndroidManifest.xml:33:17-36
+211        </service>
+212        <service
+212-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:26:9-30:19
+213            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+213-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:27:13-117
+214            android:exported="false"
+214-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:28:13-37
+215            android:permission="android.permission.BIND_JOB_SERVICE" >
+215-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:29:13-69
+216        </service>
+217
+218        <receiver
+218-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:32:9-34:40
+219            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+219-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:33:13-132
+220            android:exported="false" />
+220-->[com.google.android.datatransport:transport-runtime:3.1.9] C:\Users\migue\.gradle\caches\9.0.0\transforms\a6ea6e499b20caf5f01d463ef5325626\transformed\transport-runtime-3.1.9\AndroidManifest.xml:34:13-37
+221    </application>
+222
+223</manifest>

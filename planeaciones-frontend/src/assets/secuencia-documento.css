@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════
+   Este archivo SOLO estiliza "la parte editable" (el documento en sí:
+   doc-wrap, tablas, validación, fases). El menú/sidebar de esta pantalla
+   usa las mismas clases del CSS principal (.wrap, .sidebar, .nav-a, .nav-lbl)
+   para mantener coherencia visual con el resto de la app — no se
+   reinventa un tema aparte aquí.
+   ═══════════════════════════════════════════════ */
+
+/* Ajustes menores solo para la navegación anidada de unidades dentro
+   del sidebar compartido (indentar hijos, animar el chevron) */
+.nav-a-child {
+  padding-left: var(--s6, 28px);
+  font-size: 12px;
+}
+.nav-chevron {
+  margin-left: auto;
+  transition: transform .2s;
+  flex-shrink: 0;
+}
+.nav-chevron.open { transform: rotate(90deg); }
+.num-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--bg-soft); font-size: 10px; font-weight: 700; flex-shrink: 0;
+}
+.nav-a.active .num-badge { background: var(--uth-verde); color: white; }
+
+.sd-content {
+  flex: 1;
+  padding: var(--s7, 2rem);
+  overflow-y: auto;
+  background: var(--bg-page);
+}
+
+/* ═══════════════════════════════════════════════
+   DOCUMENTO (la parte editable — estilo fiel al formato oficial)
+═══════════════════════════════════════════════ */
+.doc-wrap {
+  --doc-label-bg: #5a9648;
+  --doc-label-txt: #ffffff;
+  --doc-value-txt: #000000;
+  --doc-border: #2e6b24;
+  --doc-section-col: #1a6d6d;
+  --doc-paper-bg: #ffffff;
+
+  background: var(--doc-paper-bg);
+  border: 1px solid var(--doc-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+  max-width: 960px;
+  margin: 0 auto 2rem;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+  padding: 0.4rem;
+}
+
+.doc-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1.1rem 1.4rem; background: var(--doc-paper-bg);
+  border-bottom: 2px solid var(--doc-border);
+}
+.doc-header-logo-placeholder {
+  height: 60px; width: 90px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px dashed #bbb; border-radius: 6px; color: #aaa; font-size: 10px; text-align: center;
+}
+.doc-header-text { text-align: center; flex: 1; }
+.doc-header-text h1 { font-size: 13px; font-weight: 700; text-transform: uppercase; color: #1a1a1a; margin-bottom: 4px; }
+.doc-header-text h2 { font-size: 12px; font-weight: 400; text-transform: uppercase; color: #444; margin-bottom: 4px; }
+.doc-header-text h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--doc-section-col); }
+
+.doc-section-title {
+  font-size: 13px; font-weight: 700; text-transform: uppercase; color: var(--doc-section-col);
+  padding: .6rem 1.2rem; border-bottom: 1px solid #c5dfc2; letter-spacing: .04em;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem;
+}
+
+.doc-table { width: 100%; border-collapse: collapse; table-layout: fixed; margin-bottom: 1.5rem; }
+.doc-table td { border: 1.5px solid #555; padding: 7px 9px; vertical-align: top; }
+.doc-table td.lbl { background: var(--doc-label-bg); color: var(--doc-label-txt); font-weight: 700; font-size: 11.5px; }
+.doc-table td.val { background: var(--doc-paper-bg); color: var(--doc-value-txt); font-size: 12.5px; font-weight: 600; font-family: Arial, Helvetica, sans-serif; }
+.doc-table td.val.empty { color: #aaa; font-weight: 400; font-style: italic; }
+.doc-table td.tall { min-height: 56px; height: 64px; }
+.doc-table .lbl-hrs { width: 16%; }
+.doc-table .val-hrs { width: 9%; }
+.doc-divider { height: 0; margin: 0; border: none; }
+
+.estado-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 999px;
+}
+.estado-Validada { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.estado-En_desarrollo { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+.estado-En_revision { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+.estado-En_proceso_validacion { background: #e8d4f0; color: #5a2d7a; border: 1px solid #d4a8e8; }
+.estado-Rechazada { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+.fade-in { animation: fadeInSection .22s ease; }
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eval-input {
+  background: transparent; border: none; border-bottom: 1.5px dashed #ccc;
+  font-family: Arial, sans-serif; font-size: 12.5px; font-weight: 600; color: #000;
+  padding: 2px 4px; outline: none; transition: border-color .2s; width: 100%;
+}
+.eval-input:focus { border-bottom-color: #5a9648; }
+.eval-input:disabled { color: #888; }
+
+.ev-cell, .fase-cell, .tema-cell {
+  min-height: 40px; white-space: pre-wrap; word-break: break-word;
+  padding: 4px; outline: none; border: none; background: transparent;
+  font-family: Arial, sans-serif; font-size: 12px; color: #000; width: 100%; resize: vertical;
+}
+.ev-cell:focus, .fase-cell:focus, .tema-cell:focus { background: #e8f5e4; box-shadow: inset 0 0 0 2px #5a9648; }
+.ev-cell:disabled, .fase-cell:disabled, .tema-cell:disabled { color: #888; background: #fafafa; }
+.fase-cell { min-height: 70px; font-size: 11.5px; }
+
+.eval-select {
+  width: 100%; background: transparent; border: 1px solid #ddd; border-radius: 4px;
+  font-family: Arial, sans-serif; font-size: 11.5px; color: #333; padding: 3px 4px; cursor: pointer; outline: none;
+}
+.eval-select:focus { border-color: #5a9648; }
+
+.pond-badge {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700;
+  padding: 2px 9px; border-radius: 999px; transition: all .3s;
+}
+.pond-ok { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.pond-warn { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+
+.fase-header {
+  background: #edf4ec; border-bottom: 1px solid #c5dfc2; padding: .5rem 1rem;
+  display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem;
+}
+.fase-header-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #1a6d6d; }
+.fase-objectives {
+  font-size: 10.5px; color: #555; padding: .4rem 1rem .6rem; background: #f9fdf8;
+  border-bottom: 1px dashed #c5dfc2; font-style: italic; line-height: 1.5;
+}
+
+/* ─── Validación ─── */
+.val-pill {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 10.5px; font-weight: 700;
+  padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+}
+.val-pill-ok { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+.val-pill-rejected { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+
+.val-section-bar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: .5rem;
+  padding: .45rem 1.2rem; font-size: 11px; border-bottom: 1px solid #eee;
+}
+.val-section-bar.vsb-ok { background: #f0fff4; border-bottom-color: #c3e6cb; }
+.val-section-bar.vsb-rejected { background: #fff5f5; border-bottom-color: #f5c6cb; }
+.val-section-bar.vsb-pending { background: #fffff8; border-bottom-color: #ffe58f; }
+
+.val-comment-display {
+  font-size: 10.5px; color: #6c2a2a; font-style: italic; padding: 2px 7px;
+  background: #ffe8e8; border-radius: 3px; max-width: 700px;
+}
+.val-comment-ok-display {
+  font-size: 10.5px; color: #155724; font-style: italic; padding: 2px 7px;
+  background: #e8f5e8; border-radius: 3px; max-width: 700px;
+}
+
+.val-comment-input {
+  width: 100%; max-width: 480px; min-width: 200px; border: 1.5px solid #f5c6cb; border-radius: 4px;
+  padding: 4px 7px; font-size: 10.5px; resize: vertical; min-height: 48px; background: #fff5f5;
+  font-family: Arial, sans-serif; color: #333; outline: none; display: block; margin-top: 3px;
+}
+.val-comment-input:focus { border-color: #dc3545; }
+
+.val-action-btns { display: flex; align-items: center; gap: .3rem; flex-wrap: wrap; margin-top: 3px; }
+.btn-val-ok, .btn-val-reject {
+  display: inline-flex; align-items: center; gap: 3px; padding: 3px 9px; border-radius: 4px;
+  font-size: 10.5px; font-weight: 700; color: #fff; border: none; cursor: pointer; transition: background .15s;
+}
+.btn-val-ok { background: #5a9648; }
+.btn-val-ok:hover { background: #4a7d3a; }
+.btn-val-reject { background: #dc3545; }
+.btn-val-reject:hover { background: #b02a37; }
+
+.val-col-cell {
+  vertical-align: middle !important; text-align: center !important; padding: 6px 5px !important;
+  min-width: 88px; max-width: 130px; border: 1.5px solid #555;
+}
+.val-col-cell .val-pill { font-size: 9.5px; padding: 2px 5px; }
+.val-col-cell .val-comment-display, .val-col-cell .val-comment-ok-display { font-size: 9px; max-width: 110px; margin-top: 3px; }
+.val-col-cell .val-comment-input { width: 100%; min-height: 34px; font-size: 9px; margin-top: 3px; }
+.val-col-cell .val-action-btns { margin-top: 3px; gap: 2px; }
+.val-col-cell .btn-val-ok, .val-col-cell .btn-val-reject { font-size: 9px; padding: 2px 5px; }

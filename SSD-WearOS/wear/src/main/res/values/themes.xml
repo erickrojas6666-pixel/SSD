@@ -1,0 +1,3 @@
+<resources>
+    <style name="Theme.SsdWear" parent="android:Theme.DeviceDefault" />
+</resources>

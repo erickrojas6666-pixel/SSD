@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#3DDC84</color>
+    <string name="app_name">SSD Notificaciones</string>
+    <string name="gcm_defaultSenderId" translatable="false">324814094333</string>
+    <string name="google_api_key" translatable="false">AIzaSyArC8HECnaW0gE_Snnxbh4EE4aTp_1Hkfc</string>
+    <string name="google_app_id" translatable="false">1:324814094333:android:362eee9488d25b7660a394</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyArC8HECnaW0gE_Snnxbh4EE4aTp_1Hkfc</string>
+    <string name="google_storage_bucket" translatable="false">ssdwearos.firebasestorage.app</string>
+    <string name="project_id" translatable="false">ssdwearos</string>
+    <style name="Theme.SsdWear" parent="android:Theme.DeviceDefault"/>
+</resources>

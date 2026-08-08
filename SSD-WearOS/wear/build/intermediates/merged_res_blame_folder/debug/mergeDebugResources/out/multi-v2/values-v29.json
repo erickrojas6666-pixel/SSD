@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.ssd.wear-mergeDebugResources-54:/values-v29/values-v29.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\migue\\.gradle\\caches\\9.0.0\\transforms\\e0b13b31e8c0650613230dafaa731767\\transformed\\core-splashscreen-1.0.1\\res\\values-v29\\values-v29.xml",
+                    "from": {
+                        "startLines": "2,7",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,374",
+                        "endLines": "6,8",
+                        "endColumns": "12,12",
+                        "endOffsets": "369,464"
+                    }
+                }
+            ]
+        }
+    ]
+}

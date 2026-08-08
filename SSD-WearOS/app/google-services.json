@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "324814094333",
+    "project_id": "ssdwearos",
+    "storage_bucket": "ssdwearos.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324814094333:android:d37481487b60a12b60a394",
+        "android_client_info": {
+          "package_name": "com.ssd.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArC8HECnaW0gE_Snnxbh4EE4aTp_1Hkfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
