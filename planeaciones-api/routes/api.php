@@ -19,6 +19,15 @@ use App\Http\Controllers\Api\Usuario\UserController;
 use App\Http\Controllers\Api\DeviceTokenController;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\User;
+
+Route::get('/debug-usuarios', function () {
+    return response()->json([
+        'total' => User::count(),
+        'usuarios' => User::select('id', 'email', 'created_at')->get()
+    ]);
+});
+
 // ── Rutas públicas ──
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/forgot-password', [AuthController::class, 'forgotPassword']);
