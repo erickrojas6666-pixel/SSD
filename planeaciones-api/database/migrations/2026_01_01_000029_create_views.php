@@ -22,7 +22,7 @@ return new class extends Migration
         // asignatura, docente, estatus) sin joins manuales en el controlador
         // -----------------------------------------------------------------
         DB::statement("
-            CREATE VIEW vw_secuencia_resumen AS
+            CREATE OR REPLACE VIEW vw_secuencia_resumen AS
             SELECT
                 s.id,
                 s.periodo,
@@ -35,7 +35,7 @@ return new class extends Migration
                 a.nombre AS asignatura,
                 a.cuatrimestre_id,
                 cu.numero AS cuatrimestre_numero,
-                GROUP_CONCAT(DISTINCT CONCAT(u.nombre, ' ', u.apellido_paterno) SEPARATOR ', ') AS docentes,
+                STRING_AGG(DISTINCT CONCAT(u.nombre, ' ', u.apellido_paterno), ', ') AS docentes,
                 s.fecha_solicitud_revision,
                 s.fecha_validacion,
                 s.created_at
@@ -46,9 +46,12 @@ return new class extends Migration
             JOIN cuatrimestres cu ON cu.id = a.cuatrimestre_id
             LEFT JOIN secuencia_user su ON su.secuencia_id = s.id
             LEFT JOIN users u ON u.id = su.user_id
-            GROUP BY s.id
+            GROUP BY 
+                s.id, s.periodo, s.estado, s.carrera_id, c.nombre, 
+                s.especialidad_id, e.nombre, s.asignatura_id, a.nombre, 
+                a.cuatrimestre_id, cu.numero, s.fecha_solicitud_revision, 
+                s.fecha_validacion, s.created_at
         ");
-
         // -----------------------------------------------------------------
         // vw_unidad_detalle: Sección B resuelta (unidad + encabezado de
         // evaluación de la sección C + estatus de revisión de la unidad)
@@ -104,8 +107,8 @@ return new class extends Migration
         // vw_evidencia_detalle: Sección C, evidencias con sus tipos de
         // evaluación combinados (auto/co/hetero) y estatus de revisión
         // -----------------------------------------------------------------
-        DB::statement("
-            CREATE VIEW vw_evidencia_detalle AS
+       DB::statement("
+            CREATE OR REPLACE VIEW vw_evidencia_detalle AS
             SELECT
                 ev.id,
                 ev.unidad_id,
@@ -113,7 +116,7 @@ return new class extends Migration
                 ev.ponderacion,
                 ev.instrumento_evaluacion,
                 ev.orden,
-                GROUP_CONCAT(DISTINCT te.nombre SEPARATOR ', ') AS tipos_evaluacion,
+                STRING_AGG(DISTINCT te.nombre, ', ') AS tipos_evaluacion,
                 r.aprobado AS revisor_aprobado,
                 r.comentario AS revisor_comentario,
                 r.revisor_id,
@@ -123,15 +126,17 @@ return new class extends Migration
             LEFT JOIN tipos_evaluacion te ON te.id = ete.tipo_evaluacion_id
             LEFT JOIN revisiones r
                 ON r.revisable_type = 'secuencia_unidad_evidencia' AND r.revisable_id = ev.id
-            GROUP BY ev.id
+            GROUP BY 
+                ev.id, ev.unidad_id, ev.evidencia_aprendizaje, ev.ponderacion, 
+                ev.instrumento_evaluacion, ev.orden, r.aprobado, r.comentario, 
+                r.revisor_id, r.fecha_revision
         ");
-
         // -----------------------------------------------------------------
         // vw_fase_detalle: Sección D, encabezado de cada fase (apertura/
         // desarrollo/cierre) con su estatus de revisión y conteo de actividades
         // -----------------------------------------------------------------
         DB::statement("
-            CREATE VIEW vw_fase_detalle AS
+            CREATE OR REPLACE VIEW vw_fase_detalle AS
             SELECT
                 f.id,
                 f.unidad_id,
@@ -145,7 +150,9 @@ return new class extends Migration
             LEFT JOIN secuencia_fase_actividades act ON act.fase_id = f.id
             LEFT JOIN revisiones r
                 ON r.revisable_type = 'secuencia_unidad_fase' AND r.revisable_id = f.id
-            GROUP BY f.id
+            GROUP BY 
+                f.id, f.unidad_id, f.fase, r.aprobado, r.comentario, 
+                r.revisor_id, r.fecha_revision
         ");
 
         // -----------------------------------------------------------------
