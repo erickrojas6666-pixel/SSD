@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'nombre' => 'Miguel Angel',
                 'apellido_paterno' => 'Morales',
                 'apellido_materno' => null,
-                'password' => Hash::make('password'), // ⚠️ cambia esto antes de producción
+                'password' => Hash::make('12345678'), // ⚠️ cambia esto antes de producción
                 'activo' => true,
                 'email_verified_at' => now(),
             ]
