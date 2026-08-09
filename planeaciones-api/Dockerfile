@@ -1,6 +1,7 @@
 FROM php:8.4-apache
 
-# Instalar dependencias del sistema esenciales
+# Instalar dependencias del sistema y extensiones de PHP en un solo bloque
+# Esto es más eficiente y evita errores de sintaxis
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -8,11 +9,11 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    libpq-dev \
     zip \
-    unzip
-
-# Instalar extensiones de PHP requeridas
-RUN apt-get update && apt-get install -y libpq-dev \ && docker-php-ext-install pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd zip
+    unzip \
+    && docker-php-ext-install pdo_mysql pdo_pgsql mbstring exif pcntl bcmath gd zip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instalar Composer oficial
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
