@@ -18,7 +18,6 @@ use App\Http\Controllers\Api\Usuario\ConfirmacionCuentaController;
 use App\Http\Controllers\Api\Usuario\UserController;
 use App\Http\Controllers\Api\DeviceTokenController;
 use Illuminate\Support\Facades\Route;
-
 use App\Models\User;
 
 Route::get('/debug-usuarios', function () {
