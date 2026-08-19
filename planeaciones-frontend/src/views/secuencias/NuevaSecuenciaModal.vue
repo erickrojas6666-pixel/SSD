@@ -28,7 +28,10 @@
 
     <div class="field">
       <label class="fl">Periodo<span class="req">*</span></label>
-      <input v-model.trim="form.periodo" type="text" class="input" placeholder="Ej. Mayo - Agosto 2026" />
+      <select v-model="form.periodo" class="input">
+        <option value="" disabled>Selecciona un periodo</option>
+        <option v-for="p in periodosDisponibles" :key="p" :value="p">{{ p }}</option>
+      </select>
     </div>
 
     <div class="field">
@@ -47,7 +50,9 @@
       <div class="grupos-lista">
         <div v-for="(g, i) in form.grupos" :key="i" class="grupos-item">
           <input v-model.trim="form.grupos[i]" type="text" class="input" placeholder="Ej. ITI-3A" />
-          <button type="button" class="btn-icon-mini" @click="form.grupos.splice(i, 1)"><X :size="14" /></button>
+          <button type="button" class="btn-icon-mini" @click="form.grupos.splice(i, 1)">
+            <X :size="14" />
+          </button>
         </div>
       </div>
       <button type="button" class="btn btn-outline btn-sm" @click="form.grupos.push('')">
@@ -90,6 +95,35 @@ const archivo = ref(null)
 const guardando = ref(false)
 const erroresForm = ref([])
 const pdfErrores = ref([])
+
+// ── Periodo: cuatrimestre + año calculados automáticamente a partir de hoy,
+// en vez de pedirle el año al usuario (es un dato derivable, no algo que
+// deba escribir o seleccionar a mano).
+const CUATRIMESTRES = ['Enero - Abril', 'Mayo - Agosto', 'Septiembre - Diciembre']
+
+// Índice de cuatrimestre (0, 1 o 2) según el mes de una fecha dada.
+function indiceCuatrimestre(fecha) {
+  return Math.floor(fecha.getMonth() / 4) // meses 0-3 → 0, 4-7 → 1, 8-11 → 2
+}
+
+// Genera la lista de periodos en orden cronológico: uno anterior al actual
+// (por si se registra una secuencia con retraso) + el actual + los
+// siguientes tres, con el año ya resuelto para cada uno.
+function generarPeriodosDisponibles() {
+  const hoy = new Date()
+  let idxGlobal = hoy.getFullYear() * 3 + indiceCuatrimestre(hoy) // periodo actual, en escala continua
+  const inicio = idxGlobal - 1
+  const fin = idxGlobal + 3
+  const periodos = []
+  for (let idx = inicio; idx <= fin; idx++) {
+    const anio = Math.floor(idx / 3)
+    const cuatrimestre = CUATRIMESTRES[((idx % 3) + 3) % 3]
+    periodos.push(`${cuatrimestre} ${anio}`)
+  }
+  return periodos
+}
+
+const periodosDisponibles = generarPeriodosDisponibles()
 
 const form = reactive({
   asignatura_id: null,
@@ -168,6 +202,7 @@ async function guardar() {
   border-radius: var(--r-sm);
   padding: var(--s3);
 }
+
 .checklist-item {
   display: flex;
   align-items: center;
@@ -176,17 +211,20 @@ async function guardar() {
   font-size: var(--p-sm);
   cursor: pointer;
 }
+
 .grupos-lista {
   display: flex;
   flex-direction: column;
   gap: var(--s2);
   margin-bottom: var(--s2);
 }
+
 .grupos-item {
   display: flex;
   align-items: center;
   gap: var(--s2);
 }
+
 .btn-icon-mini {
   border: none;
   background: none;

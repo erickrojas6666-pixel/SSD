@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, Notifiable, SoftDeletes;
 
     protected $fillable = [
         'nombre',
@@ -79,5 +79,16 @@ class User extends Authenticatable
     public function deviceTokens()
     {
         return $this->hasMany(\App\Models\DeviceToken::class);
+    }
+
+    public function routeNotificationForFcm($notification)
+    {
+        // Retorna una cadena con el token, o un array de tokens si un usuario tiene varios dispositivos
+        return $this->deviceTokens()->pluck('fcm_token')->all();
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }

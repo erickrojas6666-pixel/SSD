@@ -13,11 +13,6 @@ class FcmChannel
 {
     public function __construct(private Messaging $messaging) {}
 
-    /**
-     * Envía la notificación a todos los dispositivos (fcm_token) del usuario.
-     * Si el notifiable no tiene tokens registrados (nunca emparejó un reloj),
-     * simplemente no hace nada.
-     */
     public function send($notifiable, Notification $notification): void
     {
         if (! method_exists($notification, 'toFcm')) {
@@ -32,16 +27,18 @@ class FcmChannel
 
         $payload = $notification->toFcm($notifiable);
 
-        $mensajeBase = CloudMessage::new()
-            ->withNotification(FcmNotification::create(
-                $payload['notification']['title'],
-                $payload['notification']['body'],
-            ))
-            ->withData($payload['data'] ?? []);
-
         foreach ($tokens as $token) {
             try {
-                $this->messaging->send($mensajeBase->withChangedTarget('token', $token));
+                $message = CloudMessage::new()
+                    ->withToken($token)
+                    ->withNotification(FcmNotification::create(
+                        $payload['notification']['title'],
+                        $payload['notification']['body']
+                    ))
+                    ->withData($payload['data'] ?? []);
+
+                $this->messaging->send($message);
+
             } catch (\Throwable $e) {
                 Log::warning('FcmChannel: no se pudo enviar el push', [
                     'user_id' => $notifiable->id,
@@ -49,8 +46,6 @@ class FcmChannel
                     'error' => $e->getMessage(),
                 ]);
 
-                // Si el token ya no es válido (app desinstalada, etc.), lo limpiamos
-                // para no seguir intentando enviarle en cada cambio de estado.
                 if (
                     str_contains($e->getMessage(), 'not-found')
                     || str_contains($e->getMessage(), 'not a valid FCM registration token')

@@ -1,12 +1,22 @@
 <template>
   <div class="doc-header">
-    <div class="doc-header-logo-placeholder">Escudo UTH</div>
-    <div class="doc-header-text">
-      <h1>Universidad Tecnológica de Huejotzingo</h1>
-      <h2 v-if="programa">{{ programa }}</h2>
-      <h3>{{ subtitulo }}</h3>
+    <!-- Logo Izquierda: Universidades del Subsistema Tecnológico -->
+    <div class="doc-header-logo-placeholder">
+      <img src="/img/ut.png" alt="Logo Universidades Tecnológicas" class="logo-img">
     </div>
-    <div class="doc-header-logo-placeholder">Escudo UT/UP</div>
+
+    <!-- Texto Central -->
+    <div class="doc-header-text">
+      <h1>Universidades del Subsistema Tecnológico</h1>
+      <h2>Universidad Tecnológica Huejotzingo</h2>
+      <h3 v-if="programa">{{ programa }}</h3>
+      <h4>{{ subtitulo }}</h4>
+    </div>
+
+    <!-- Logo Derecha: UTH -->
+    <div class="doc-header-logo-placeholder">
+      <img src="/img/uth.webp" alt="Logo UTH" class="logo-img">
+    </div>
   </div>
 </template>
 

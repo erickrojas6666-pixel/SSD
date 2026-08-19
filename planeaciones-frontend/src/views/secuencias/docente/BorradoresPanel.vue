@@ -21,21 +21,28 @@
           <tbody>
             <tr v-if="cargando"><td colspan="5" class="sz-sm" style="text-align:center;color:var(--text-300)">Cargando…</td></tr>
             <tr v-else-if="borradores.length === 0"><td colspan="5" class="sz-sm" style="text-align:center;color:var(--text-300)">No tienes secuencias en borrador.</td></tr>
-            <tr v-for="s in borradores" :key="s.id">
+            <tr
+              v-for="s in borradores"
+              :key="s.id"
+              class="row-open"
+              title="Doble clic para abrir"
+              @dblclick="abrirEditor(s.id)"
+            >
               <td>{{ s.asignatura?.nombre }}</td>
               <td>{{ s.periodo }}</td>
               <td><span v-for="g in s.grupos" :key="g.id" class="badge b-azul" style="margin-right:4px">{{ g.grupo }}</span></td>
               <td><span :class="['badge', badgeEstado(s.estado)]">{{ etiquetaEstado(s.estado) }}</span></td>
               <td>
                 <div class="flex ic g2u">
-                  <IconButton title="Abrir" @click="abrirEditor(s.id)"><ArrowRight :size="16" /></IconButton>
-                  <IconButton title="Eliminar" variant="danger" :disabled="eliminandoId === s.id" @click="eliminar(s)"><Trash2 :size="16" /></IconButton>
+                  <IconButton title="Abrir" @click.stop="abrirEditor(s.id)"><ArrowRight :size="16" /></IconButton>
+                  <IconButton title="Eliminar" variant="danger" :disabled="eliminandoId === s.id" @click.stop="eliminar(s)"><Trash2 :size="16" /></IconButton>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <p v-if="borradores.length" class="tbl-hint">Tip: doble clic en una fila para abrir la secuencia.</p>
     </div>
 
     <NuevaSecuenciaModal v-if="modalCrearAbierto" @close="modalCrearAbierto = false" @creada="onSecuenciaCreada" />

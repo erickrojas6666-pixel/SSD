@@ -8,11 +8,6 @@ return new class extends Migration
 {
     public function up(): void
     {
-        // 1. Eliminar la vista dependiente primero para liberar la tabla
-        DB::statement("DROP VIEW IF EXISTS vw_evidencia_detalle CASCADE;");
-
-        // 2. Ahora sí, puedes borrar o modificar la tabla sin problemas
-        Schema::dropIfExists('evidencia_tipo_evaluacion');
         // Se simplifica: un solo campo de texto con el tipo (o combinación de tipos)
         // de evaluación, en vez de la relación N:M anterior.
         Schema::table('secuencia_unidad_evidencias', function (Blueprint $table) {

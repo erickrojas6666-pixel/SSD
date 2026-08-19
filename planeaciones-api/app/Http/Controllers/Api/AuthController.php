@@ -144,7 +144,8 @@ class AuthController extends Controller
     {
         try {
             $request->validate(['email' => ['required', 'email']]);
-
+            
+            // Esto buscará al usuario en tu modelo y llamará automáticamente a tu método sendPasswordResetNotification
             Password::sendResetLink($request->only('email'));
 
             return response()->json(['message' => 'Si el correo está registrado, se envió un enlace de recuperación.']);
@@ -158,11 +159,9 @@ class AuthController extends Controller
                 'archivo' => $e->getFile(),
             ]);
 
-            // Igual devolvemos un mensaje genérico: no revelar detalles internos ni si el correo existe
             return response()->json(['message' => 'Si el correo está registrado, se envió un enlace de recuperación.']);
         }
     }
-
     /**
      * POST /api/reset-password
      */

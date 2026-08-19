@@ -17,10 +17,7 @@ class CuatrimestreSeeder extends Seeder
         ];
 
         foreach ($nombres as $numero => $nombre) {
-            Cuatrimestre::updateOrCreate(
-                ['numero' => $numero], // Busca por este campo único
-                ['nombre' => $nombre]  // Actualiza o inserta este valor
-            );
+            Cuatrimestre::create(['numero' => $numero, 'nombre' => $nombre]);
         }
     }
 }

@@ -59,7 +59,13 @@
                   No se encontraron usuarios.
                 </td>
               </tr>
-              <tr v-for="u in usuarios" :key="u.id">
+              <tr
+                v-for="u in usuarios"
+                :key="u.id"
+                class="row-open"
+                title="Doble clic para abrir"
+                @dblclick="abrirEditar(u)"
+              >
                 <td>{{ nombreCompleto(u) }}</td>
                 <td>{{ u.email }}</td>
                 <td>
@@ -79,15 +85,15 @@
                 </td>
                 <td>
                   <div class="flex ic g2u">
-                    <IconButton title="Editar" @click="abrirEditar(u)">
+                    <IconButton title="Editar" @click.stop="abrirEditar(u)">
                       <Pencil :size="16" />
                     </IconButton>
-                    <IconButton title="Reenviar credenciales" @click="reenviarCredenciales(u)"
+                    <IconButton title="Reenviar credenciales" @click.stop="reenviarCredenciales(u)"
                       :disabled="!!u.email_verified_at">
                       <Send :size="16" />
                     </IconButton>
                     <IconButton :title="u.activo ? 'Desactivar' : 'Activar'" :variant="u.activo ? 'danger' : 'primary'"
-                      @click="toggleActivo(u)">
+                      @click.stop="toggleActivo(u)">
                       <Power :size="16" />
                     </IconButton>
                   </div>
@@ -96,6 +102,7 @@
             </tbody>
           </table>
         </div>
+        <p v-if="usuarios.length" class="tbl-hint">Tip: doble clic en una fila para editar el usuario.</p>
 
         <div v-if="paginacion.last_page > 1" class="flex jb ic" style="padding: var(--s4)">
           <span class="sz-sm" style="color:var(--text-300)">

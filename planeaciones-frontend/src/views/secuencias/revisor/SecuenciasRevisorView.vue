@@ -20,16 +20,23 @@
             <tbody>
               <tr v-if="cargando"><td colspan="5" class="sz-sm" style="text-align:center;color:var(--text-300)">Cargando…</td></tr>
               <tr v-else-if="secuencias.length === 0"><td colspan="5" class="sz-sm" style="text-align:center;color:var(--text-300)">No hay secuencias pendientes de revisión.</td></tr>
-              <tr v-for="s in secuencias" :key="s.id">
+              <tr
+                v-for="s in secuencias"
+                :key="s.id"
+                class="row-open"
+                title="Doble clic para abrir"
+                @dblclick="abrirEditor(s.id)"
+              >
                 <td>{{ s.asignatura?.nombre }}</td>
                 <td>{{ s.carrera?.nombre }}</td>
                 <td>{{ s.periodo }}</td>
                 <td>{{ s.autores.map(a => a.nombre_completo).join(', ') }}</td>
-                <td><IconButton title="Revisar" @click="abrirEditor(s.id)"><ArrowRight :size="16" /></IconButton></td>
+                <td><IconButton title="Revisar" @click.stop="abrirEditor(s.id)"><ArrowRight :size="16" /></IconButton></td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p v-if="secuencias.length" class="tbl-hint">Tip: doble clic en una fila para abrir la secuencia.</p>
       </div>
     </div>
   </AppShell>
