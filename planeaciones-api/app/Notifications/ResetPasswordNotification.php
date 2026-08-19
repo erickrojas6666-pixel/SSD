@@ -10,11 +10,11 @@ class ResetPasswordNotification extends Notification
 {
     use Queueable;
 
-    public $token; // Esta propiedad debe existir
+    public $token;
 
-    public function __construct($token) // Debe recibir el parámetro
+    public function __construct($token)
     {
-        $this->token = $token; // Debe asignarlo
+        $this->token = $token;
     }
     
     public function via($notifiable)
@@ -24,8 +24,11 @@ class ResetPasswordNotification extends Notification
 
     public function toMail($notifiable)
     {
-        // URL exacta de tu frontend con la ruta /restablecer-password y los parámetros requeridos
-        $url = "http://localhost:5173/restablecer-password?token={$this->token}&email=" . urlencode($notifiable->email);
+        // Usar una variable de entorno para el frontend (recomendado) 
+        // O coloca directamente la URL de producción de tu frontend si ya la tienes fija
+        $frontendUrl = env('FRONTEND_URL', 'https://ssd-psi.vercel.app'); // Ajusta si tu frontend está en otro dominio de Vercel
+
+        $url = "{$frontendUrl}/restablecer-password?token={$this->token}&email=" . urlencode($notifiable->email);
 
         return (new MailMessage)
             ->subject('Recuperación de Contraseña')
@@ -34,6 +37,6 @@ class ResetPasswordNotification extends Notification
             ->action('Restablecer Contraseña', $url)
             ->line('Este enlace de restablecimiento de contraseña expirará en 60 minutos.')
             ->line('Si no solicitaste un restablecimiento de contraseña, no se requiere ninguna otra acción.')
-            ->salutation('Atentamente, El equipo');
+            ->salutation('Atentamente, El equipo de soporte.');
     }
 }
